@@ -9,8 +9,8 @@
  * @param {string} value
  * @returns {string}
  */
-function rle(value) {
-    return undefined;
+function rle(s) {
+    return s.replace(/(.)\1+/g, (a, c) => a.length + c);
 }
-
+console.log(rle("AAAaaB"));
 module.exports = rle;

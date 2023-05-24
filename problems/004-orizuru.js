@@ -18,8 +18,11 @@
  * @returns {number[]} массив чисел, где первый элемент это количество журавликов сделанных Петей,
  * второй элемент – Катей, третий – Сережей
  */
-function computeOrizurus(total) {
-    return undefined;
-}
+const computeOrizurus = (total) => [
+    Math.ceil(total / 3 / 2),
+    total - Math.ceil(total / 3 / 2) * 2,
+    Math.ceil(total / 3 / 2),
+];
+console.log(computeOrizurus(11));
 
 module.exports = computeOrizurus;

@@ -18,7 +18,20 @@
  * @returns {boolean}
  */
 function validatePassword(password) {
-    return undefined;
+    if (password.length >= 7) {
+        if (
+            password.match(/[A-Z]/g) &&
+            password.match(/[a-z]/g) &&
+            password.match(/[0-9]/g)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
 }
+console.log(validatePassword("abc4DEFG"));
 
 module.exports = validatePassword;

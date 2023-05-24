@@ -13,7 +13,16 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    return -1;
-}
+    let old = 0;
+    let id = undefined;
 
+    list.map((el, idx, arr) => {
+        if (el.gender == "Male" && el.age >= old) {
+            old = el.age;
+            id = arr.indexOf(el);
+        }
+    });
+    return id >= 0 ? id + 1 : id;
+}
+console.log(census([{ age: 40, gender: "Female" }]));
 module.exports = census;

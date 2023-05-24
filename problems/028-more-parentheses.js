@@ -11,8 +11,18 @@
  * @param {string} value – строка из набора символов (, ), {, }, <, >.
  * @returns {boolean}
  */
-function parentheses(value) {
-    return undefined;
+function parentheses(braces) {
+    if (braces.length == 0) return false;
+    while (
+        braces.indexOf("{}") != -1 ||
+        braces.indexOf("()") != -1 ||
+        braces.indexOf("<>") != -1
+    ) {
+        braces = braces.replace("{}", "").replace("()", "").replace("<>", "");
+        console.log(braces);
+    }
+    return braces.length === 0;
 }
 
+console.log(parentheses("<>"));
 module.exports = parentheses;

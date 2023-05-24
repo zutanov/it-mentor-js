@@ -17,8 +17,28 @@
  * @param {number[]} temperature массив чисел, где каждое – среднесуточная температура в соответствующий день
  * @returns {number}
  */
-function getSpringMeltStreak(temperature) {
-    return undefined;
+function getSpringMeltStreak(t) {
+    let arr = [];
+    let sum = 0;
+
+    for (let i = 0; i < t.length; i++) {
+        if (t[i] > 0) {
+            arr.push(1);
+        } else {
+            arr.push(0);
+        }
+    }
+
+    const res = arr.join("").split("0");
+
+    for (let i = 0; i < res.length; i++) {
+        if (res[i] > sum) {
+            sum = res[i];
+        }
+    }
+
+    return sum.length || 0;
 }
+console.log(getSpringMeltStreak([-20, 30, -40, 50, 10, -10]));
 
 module.exports = getSpringMeltStreak;

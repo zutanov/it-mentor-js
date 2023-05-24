@@ -16,7 +16,7 @@
  * @returns {number}
  */
 function repair(width, length, height) {
-    return undefined;
+    return Math.ceil(((width + length) * 2 * height) / 16);
 }
-
+console.log(repair(10, 4, 4));
 module.exports = repair;

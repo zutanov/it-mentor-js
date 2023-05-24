@@ -1,4 +1,4 @@
-const metro = require('../025-metro');
+const metro = require("../025-metro");
 
 test('Тестирование задачи "025-metro"', () => {
     expect(metro(1, 2)).toBe(0);

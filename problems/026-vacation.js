@@ -14,7 +14,13 @@
  * @returns {string}
  */
 function vacation(date) {
-    return undefined;
+    let newDate = date.split(".");
+    let arr = [newDate[1], newDate[0], newDate[2]].join(".");
+    const restDays = 14 * 86400000 + 21600000;
+    let dates = Date.parse(arr);
+    let res = new Date(dates + restDays).toLocaleDateString();
+    return res;
 }
+console.log(vacation("22.02.2021"));
 
 module.exports = vacation;

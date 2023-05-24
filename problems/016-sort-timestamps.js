@@ -9,7 +9,7 @@
  * @returns {string[]} отсортированный по возрастанию массив временных моментов
  */
 function sortTimestamps(list) {
-    return undefined;
+    return list.sort();
 }
-
+console.log(sortTimestamps(["23:02:59", "02:07:00"]));
 module.exports = sortTimestamps;

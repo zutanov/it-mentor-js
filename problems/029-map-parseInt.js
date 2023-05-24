@@ -16,7 +16,7 @@
  * @returns {number[]}
  */
 function map(array = []) {
-    return array.map(parseInt);
+    return array.map((el) => parseInt(el));
 }
-
+console.log(map(["128", "64", "32"]));
 module.exports = map;

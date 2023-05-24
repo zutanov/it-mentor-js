@@ -16,7 +16,14 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    let first = 0;
+    let second = 0;
+    for (let i = 0; i < points.length; i++) {
+        first += +points[i].slice(0, 2);
+        second += +points[i].slice(3);
+    }
+    return first > second ? 1 : second > first ? 2 : undefined;
 }
+console.log(getWinner(["36-18", "22-31", "27-21", "19-34"]));
 
 module.exports = getWinner;

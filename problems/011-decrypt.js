@@ -16,7 +16,16 @@
  * @returns {string}
  */
 function decrypt(secret) {
-    return undefined;
+    let res = [];
+    const numbers = secret.split("").map((el) => el.charCodeAt(el));
+    numbers.map((el) => {
+        el == 122
+            ? res.push(String.fromCharCode(97))
+            : el == 32
+            ? res.push(String.fromCharCode(32))
+            : res.push(String.fromCharCode(el + 1));
+    });
+    return res.join("");
 }
-
+console.log(decrypt("zmc vd hfmnqd rozbdr"));
 module.exports = decrypt;

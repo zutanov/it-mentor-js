@@ -1,4 +1,4 @@
-const repair = require('../021-repair');
+const repair = require("../021-repair");
 
 test('Тестирование задачи "021-repair"', () => {
     expect(repair(1, 1, 3)).toBe(1);

@@ -17,7 +17,19 @@
  * @returns {number}
  */
 function metro(x, y) {
-    return undefined;
+    let a = 0;
+    let b = 0;
+    if (x - y === 1 || x - y === 12 || y - x === 1 || y - x === 12) {
+        return 0;
+    } else if (y > x) {
+        a = 13 + x - y - 1;
+        b = y - x - 1;
+    } else {
+        a = x + y - x - 1;
+        b = (y - x) * -1 - 1;
+    }
+    return a < b ? a : b;
 }
+console.log(metro(1, 8));
 
 module.exports = metro;

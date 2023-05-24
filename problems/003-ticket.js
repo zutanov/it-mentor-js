@@ -14,7 +14,16 @@
  * @returns {boolean}
  */
 function checkTicket(number) {
-    return undefined;
+    let left = number
+        .slice(0, 3)
+        .split("")
+        .reduce((a, b) => parseInt(a) + parseInt(b));
+    let right = number
+        .slice(3)
+        .split("")
+        .reduce((a, b) => parseInt(a) + parseInt(b));
+    return left === right ? true : false;
 }
+console.log(checkTicket("133700"));
 
 module.exports = checkTicket;

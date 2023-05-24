@@ -16,7 +16,18 @@
  * @returns {boolean}
  */
 function parentheses(value) {
-    return undefined;
+    let arr = value.split("");
+    if (arr.length % 2 == 1 || arr.length === 0) return false;
+
+    for (; arr.length !== 0; ) {
+        if (arr[0] == ")" || !arr.includes(")")) {
+            return false;
+        }
+        arr.shift();
+        arr.splice(arr.indexOf(")"), 1);
+    }
+    return true;
 }
 
+console.log(parentheses(""));
 module.exports = parentheses;
