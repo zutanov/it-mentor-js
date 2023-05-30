@@ -9,11 +9,23 @@
  * @returns {boolean}
  */
 
-export const isEmpty = (object) => {
-    throw new Error(`Напишите здесь свое решение ${object}`);
+const isEmpty = (object) => {
+  let count = 0;
+  const length = Object.values(object).length;
+  for (let i in object) {
+    if (
+      object[i] === "" ||
+      object[i] === null ||
+      object[i] === NaN ||
+      object[i] === undefined
+    ) {
+      count++;
+    }
+  }
+  return count === length;
 };
 
-const data = {a: 1, b: undefined};
-const data2 = {a: undefined};
+const data = { a: NaN, b: 2 };
+const data2 = { a: undefined };
 console.log(isEmpty(data)); // false
 console.log(isEmpty(data2)); // true

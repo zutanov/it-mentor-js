@@ -9,11 +9,25 @@
  * @returns {boolean}
  */
 
-export const isEmptyDeep = (object) => {
-    throw new Error(`Напишите здесь свое решение ${object}`);
+const isEmptyDeep = (object) => {
+  for (let k in object) {
+    if (
+      object[k] === "" ||
+      object[k] === null ||
+      object[k] === NaN ||
+      object[k] === undefined
+    ) {
+      return false;
+    }
+    if (typeof object[k] === "object") {
+      return isEmptyDeep(object[k]);
+    } else {
+      return true;
+    }
+  }
 };
 
-const data = {a: {b: undefined}};
-const data2 = {a: {b: 1}};
+const data = { a: { b: undefined } };
+const data2 = { a: { b: 1 } };
 console.log(isEmptyDeep(data)); // true
 console.log(isEmptyDeep(data2)); // false

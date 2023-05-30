@@ -7,9 +7,23 @@
  * @returns {Object} - новый объект без удаленных значений
  */
 
-export const without = (object, ...args) => {
-    throw new Error(`Напишите здесь свое решение ${object} ${args}`);
+const { compareScriptCovs } = require("@bcoe/v8-coverage");
+
+const without = (object, ...args) => {
+  //   const keys = Object.entries(object);
+  //   const obj = {};
+  //   for (let i = 0; i < keys.length; i++) {
+  //     for (let j = 0; j < args.length; j++) {
+  //       console.log(keys[i][0]);
+  //       console.log(args[j]);
+  //       if (keys[i] !== args[j]) {
+  //         return keys[i];
+  //       }
+  //     }
+  //   }
+  args.forEach((el) => delete object[el]);
+  return object;
 };
 
-const data = {a: 1, b: 2, c: 3};
-console.log(without(data, 'b', 'c')); // { a: 1 }
+const data = { a: 1, b: 2, c: 3 };
+console.log(without(data, "b", "c")); // { a: 1 }

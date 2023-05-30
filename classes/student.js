@@ -7,23 +7,31 @@
  */
 
 class User {
-    constructor(name, surname) {
-        this.name = name;
-        this.surname = surname;
-    }
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+  }
 
-    getFullName() {
-        return this.name + ' ' + this.surname;
-    }
+  getFullName() {
+    return this.name + " " + this.surname;
+  }
 }
 
-class Student {
-    // Ваш код...
+class Student extends User {
+  constructor(name, surname, entered) {
+    super(name, surname);
+    this.entered = entered;
+    this.year = 2023;
+  }
+
+  getCourse() {
+    return this.year - this.entered;
+  }
 }
 
-const student = new Student('Иван', 'Иванов', 2020);
+const student = new Student("Иван", "Иванов", 2020);
 
-console.log(worker.name); //выведет 'Иван'
-console.log(worker.surname); //выведет 'Иванов'
-console.log(worker.getFullName()); //выведет 'Иван Иванов'
-console.log(worker.year); //выведет 2020console.log(worker.getCourse()); //выведет 3 - третий курс, так как текущий год 2023
+console.log(student.name); //выведет 'Иван'
+console.log(student.surname); //выведет 'Иванов'
+console.log(student.getFullName()); //выведет 'Иван Иванов'
+console.log(student.getCourse()); //выведет 2020console.log(worker.getCourse()); //выведет 3 - третий курс, так как текущий год 2023

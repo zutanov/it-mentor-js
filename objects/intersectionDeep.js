@@ -7,10 +7,24 @@
  * @returns {Object}
  */
 
-export const intersectionDeep = (firstObject, secondObject) => {
-    throw new Error(`Напишите здесь свое решение ${firstObject}, ${secondObject}`);
+const { object } = require("webidl-conversions");
+
+const intersectionDeep = (firstObject, secondObject) => {
+  let resemble = {};
+
+  for (let k of Object.keys(firstObject)) {
+    if (secondObject.hasOwnProperty(k)) {
+      resemble[k] = firstObject[k];
+    }
+    if (typeof firstObject[k]) {
+      intersectionDeep(firstObject[k], secondObject[k]);
+    }
+  }
+
+  return resemble;
+  // throw new Error(`Напишите здесь свое решение ${firstObject}, ${secondObject}`);
 };
 
-const data = {a: 1, b: {c: 3}};
-const data2 = {c: 1, b: {c: 3}};
+const data = { c: 1, b: { c: 3 } };
+const data2 = { d: 1, b: { c: 3 } };
 console.log(intersectionDeep(data, data2)); // { b: { c: 3 } }

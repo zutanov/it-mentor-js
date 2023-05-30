@@ -7,8 +7,19 @@
  * @returns {boolean}
  */
 
-export const isPlainObject = (element) => {
-    throw new Error(`Напишите здесь свое решение ${element}`);
+const isPlainObject = (element) => {
+  if (
+    Array.isArray(element) ||
+    element === null ||
+    element === undefined ||
+    typeof element == "string" ||
+    typeof element === "number"
+  ) {
+    return false;
+  }
+  if (typeof element === "object") {
+    return true;
+  }
 };
 
 const data = { a: 1 };
