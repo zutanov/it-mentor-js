@@ -1,3 +1,4 @@
+const { cache } = require("browserslist");
 const { memo } = require("react");
 const { name } = require("xml-name-validator");
 
@@ -232,5 +233,34 @@ const fib = (n, memo) => {
   if (n <= 1) return 1;
   return (memo[n] = fib(n - 1, memo) + fib(n - 2, memo));
 };
+// =======================================================
 
-console.log(fib(9));
+const memo = (fn) => {
+  const cache = new Map();
+  return function (n) {
+    if (!cache.has(n)) {
+      console.log("writing...");
+      cache.set(n, fn(n));
+    }
+    console.log("getting...");
+    return cache.get(n);
+  };
+};
+
+const fibo = memo(function (n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  return fibo(n - 1) + fibo(n - 2);
+});
+
+console.log("first " + fibo(15));
+console.log("second " + fibo(15));
+console.log("third " + fibo(15));
+
+const user1 = {
+  name: "sam",
+  age: 28,
+};
+
+const obj = Object.create(Object.prototype, { p: { value: 1 } });
+console.log(obj.p);
